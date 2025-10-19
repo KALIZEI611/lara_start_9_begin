@@ -13,15 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('workers', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('surname');
-            $table->string('email');
-            $table->integer('age')->nullable();
-            $table->text('description')->nullable();
-            $table->boolean('is_married')->default(false);
-            $table->timestamps();
+            $table->string('title',100)->change();
+            $table->string('desc');
+            $table->timestamp('created_at');
         });
     }
 
@@ -32,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('workers');
+        //
     }
 };
